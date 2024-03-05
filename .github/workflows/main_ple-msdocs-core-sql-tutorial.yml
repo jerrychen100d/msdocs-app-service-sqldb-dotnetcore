@@ -29,7 +29,7 @@ jobs:
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
       
       - name: dotnet install entity-framework-core
-        run: dotnet tool install -g dotnet-ef --version 7.0.14.
+        run: dotnet tool install -g dotnet-ef --version 8.0.2.
 
       - name: dotnet generate db migration bundle #The migration bundle is a self-contained executable that you can run in the production environment without needing the .NET SDK. The App Service linux container only has the .NET runtime and not the .NET SDK.
         run: dotnet ef migrations bundle --runtime linux-x64 -p DotNetCoreSqlDb/DotNetCoreSqlDb.csproj -o ${{env.DOTNET_ROOT}}/myapp/migrate
